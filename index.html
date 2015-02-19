@@ -1,18 +1,82 @@
+
+
 <html>
+<div id="container">
+<h1>
+Dev League Coding Challenge / GeeMail
+</h1>
+</div>
+<div id="navigation"> 
+	<ul>
+			<li><a href="#">Home</a></li>
+			</u>
+			</div>
+			<div id="content">
+
 	<head>
+		<title>GeeMail</title>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
-      window.onload = function(){
+      window.onload = function(){ // your code
+      	//* 
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+
+        //the CSS is just a simple template I found since you said you're not too concerned about it right now. 
         
+        // Here I've been looking around trying to figure out how Javascript loading works - http://stackoverflow.com/questions/3520780/when-is-window-onload-fired. I've been working from examples trying to work backwords :/
+        //http://www.w3schools.com/jsref/event_onload.asp 
+        //http://www.w3schools.com/js/js_arrays.asp
+
+        window.onload = process();      
+        function process () {
+        for (var i = 0; i < window.geemails.length; i++) {
+       
+			var message = generateMessage();
+			window.geemails.push(message);
+			// for step three and four I see the generatemessage array is where I should be looking but not sure how to list it. Here is my attempt so far: 
+			function addNewMessage () { 
+				var message = getnewmessage(); 
+				//now to log it 
+				console.log (message);
+				displayMessage(message);
+				// next I want to display it so here I'm trying to use the displaymessage array 
+				//also a basic table command to display the required list
+				document.write("<table border=0 width=550>")
+				document.write("<tr>")
+				document.write(" <td width=100% align=center>")
+				document.write("<body> ")
+
+				var interval = setInterval(addNewMessage, 10000); //http://www.w3schools.com/js/js_timing.asp * working off of examples and from this site on how to set intervals
+
+				function displayMessage (message) 
+				var date =message.date;
+				var sender = message.sender;
+				var subject = message.subject;
+				var body = message.body; 
+				</body>  //I'm trying to put this into a table but it doesn't seem to want to go in the body? 
+				}
+				
+
+
+				}
+
+	} 
+
+        });
       };
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
 			Build Me!
+			<div id="header">
+			<h3> GeeMail </h3>
+			<div id="wraper">
+				<h1>First attempt</h1>
+				<h1>February 15</h1>
+				<div id="footer">&copy; 2015 Cannon</div>
 		</div>
 	</body>
 </html>
