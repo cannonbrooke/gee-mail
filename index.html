@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html>
   <head>
                    <!--JavaScript Source-->
@@ -36,24 +36,34 @@ for(var i = 0; i < 10; i++){
   }
   inbox += "</tables>";
   document.getElementById("emails").innerHTML = inbox;
+
+  var inboxElement = document.getElementById('Inbox');
+  inboxElement.innerHTML =  'Inbox:' + window.gemails.length;
+
+  var interval = setInterval('inbox-counter',1000);
+
+  //function getgeeMessage(){
+  //var newMessage = generateMessage (); 
+  //window.geemails.push(newMessage);
+  //inboxElement.innerHTML = 'Inbox:' + window.gemails.lenth;
+  //console.log(newMessage);
+  
   };
         
       </script>
       </head>
-     
-
-  <body>
-    <header class="navbar-inverse">
-      <div class="container">
-      <nav role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <body>
+        <header class="navbar-inverse">
+            <div class="container">
+            <nav role="navigation">
+            <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+         <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
       </button>
-     </div>
-     </nav>
+      </div>
+      </nav>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -63,14 +73,22 @@ for(var i = 0; i < 10; i++){
       </div>
   
 </header>
-<body>
+
+  <body>
+
   <div class="jumbotron">
   <div class="container">
+
     <center>
     <img src="https://lh6.ggpht.com/8-N_qLXgV-eNDQINqTR-Pzu5Y8DuH0Xjz53zoWq_IcBNpcxDL_gK4uS_MvXH00yN6nd4=w300" style="width: 100px;height:100px" alt="A stolen picture">
     <div></center>
 
   <h1><center>Gee-Mail</center></h1></center>
+  <div class="counter">
+      <p>Inbox ()</p>
+      <p id="inbox-counter"></p>
+      </div>
+
   </div>
       <div class="container">
       <div class="row">
@@ -79,9 +97,11 @@ for(var i = 0; i < 10; i++){
       <div class="sidebar">
       </div>
       <div class="container" id="emails"></div> <!-- prints emails in table -->
+    
       </div>
-      </div>
+      </div>  
   </center>
+
     
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
