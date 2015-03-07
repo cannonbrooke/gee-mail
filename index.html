@@ -22,7 +22,7 @@ window.onload= function(){
 table = [];loadGeeMails(); //loading geemail 
 
 var inbox= "<table id = 'inbox' >"; //creating variable called inbox table output id = inbox
-
+inbox += "<tr> <th>Sender</th> <th>Subject</th> <th>Date</th> </tr>";
 for(var i = 0; i < 10; i++){
 
     var email = generateMessage();
@@ -30,7 +30,7 @@ for(var i = 0; i < 10; i++){
     table[i] = email;
 
     inbox += "<tr>";
-    inbox += "<td>" + email.sender + "</td> <td>" + email.subject + "</td> <td>" + email.date + "</td>"; //putting criteria into tables
+    inbox += "<td>" + email.sender + "</td><td>" + email.subject + "</td> <td>" + email.date + "</td>"; //putting criteria into tables
     inbox +="</tr>"
 
   }
