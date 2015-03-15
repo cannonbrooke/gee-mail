@@ -16,38 +16,34 @@
       
       <!-- This is where my code will go -->
       <script>
+        window.onload= function(){
 
+          table = [];loadGeeMails(); //loading geemail 
+          var inbox= "<table id = 'inbox' >"; //creating variable called inbox table output id = inbox
+          inbox += "<tr> <th>Sender</th> <th>Subject</th> <th>Date</th> </tr>";
+          for(var i = 0; i < 10; i++){
+          var email = generateMessage();
+          table[i] = email;
 
-window.onload= function(){
-
-table = [];loadGeeMails(); //loading geemail 
-
-
-    var inbox= "<table id = 'inbox' >"; //creating variable called inbox table output id = inbox
-    inbox += "<tr> <th>Sender</th> <th>Subject</th> <th>Date</th> </tr>";
-
-for(var i = 0; i < 10; i++){
-
-    var email = generateMessage();
-    table[i] = email;
-
-    inbox += "<tr>";
-    inbox += "<td>" + email.sender + "</td><td>" + email.subject + "</td> <td>" + email.date + "</td>"; //putting criteria into tables
-    inbox +="</tr>"
+          inbox += "<tr>";
+          inbox += "<td>" + email.sender + "</td><td>" + email.subject + "</td> <td>" + email.date + "</td>"; //putting criteria into tables
+          inbox +="</tr>"
 
   }
+
     inbox += "</tables>";
     document.getElementById("emails").innerHTML = inbox;
 
    var inboxElement = document.getElementById('Inbox');
    inboxElement.innerHTML =  'Inbox:' + window.gemails.length;
 
+
       
   function inboxcount(){
   	var newMessage = getNewMessage();
   	console.log(getNewMessage);
   	window.geemails.push(newMessage);
-  	updateEmailCount();
+  	
 
   }
 
@@ -103,13 +99,14 @@ for(var i = 0; i < 10; i++){
 
   <h1><center>Gee-Mail</center></h1></center>
   
-  <script type="text/javascript">
-  document.write("Inbox (" + geemails.length + ")");
-
-  </script>
+    <script type="text/javascript">
+      document.write("Inbox (" + geemails.length + ")");
+    </script>
   <table id="Inbox"> 
   <p id="Inbox"></p>
   <div class= "geemails" id= "emails">
+  </table>
+  </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
