@@ -18,54 +18,48 @@
       <script>
         window.onload= function(){
 
-          table = [];loadGeeMails(); //loading geemail 
-          var inbox= "<table id = 'inbox' >"; //creating variable called inbox table output id = inbox
+          table = [];
+          var inbox= "<table id = 'messages' >"; //creating variable called inbox table output id = inbox
           inbox += "<tr> <th>Sender</th> <th>Subject</th> <th>Date</th> </tr>";
           for(var i = 0; i < 10; i++){
-          var email = generateMessage();
-          table[i] = email;
+            var email = generateMessage();
+            table[i] = email;
 
-          inbox += "<tr>";
-          inbox += "<td>" + email.sender + "</td><td>" + email.subject + "</td> <td>" + email.date + "</td>"; //putting criteria into tables
-          inbox +="</tr>"
+            inbox += "<tr>";
+            inbox += "<td>" + email.sender + "</td><td>" + email.subject + "</td> <td>" + email.date + "</td>"; //putting criteria into tables
+            inbox +="</tr>"
+          }
 
-  }
+          inbox += "</tables>";
+          document.getElementById("emails").innerHTML = inbox;
 
-    inbox += "</tables>";
-    document.getElementById("emails").innerHTML = inbox;
+           var inboxElement = document.getElementById('Inbox');
+           inboxElement.innerHTML =  'Inbox:' + window.geemails.length;
+              
+          function updateEmailCount() {
+            var newMessage = getNewMessage();
+            window.geemails.push(newMessage);
 
-   var inboxElement = document.getElementById('Inbox');
-   inboxElement.innerHTML =  'Inbox:' + window.gemails.length;
+          	var inboxElement = document.getElementById('Inbox');
+            var tableElement = document.getElementById('messages');
 
+            var inboxCount = window.geemails.length;
+            var row = tableElement.insertRow(1);
 
-      
-  function inboxcount(){
-  	var newMessage = getNewMessage();
-  	console.log(getNewMessage);
-  	window.geemails.push(newMessage);
-  	
+            var nameCell = row.insertCell(0);
+            nameCell.innerHTML = newMessage.sender;
+            var nameCell = row.insertCell(1)
+            nameCell.innerHTML = newMessage.subject;
+            var nameCell = row.insertCell(2)
+            nameCell.innerHTML = newMessage.date;
 
-  }
+          	inboxElement.innerHTML = 'Inbox:' + window.geemails.length;
+          }
 
-  function updateEmailCount() {
-  	var inboxElement = document.getElementById('Inbox');
-    var row = tableElement.insertRow(getNewMessage);
-    document.getElementById("Inbox").innerHTML = inboxCount;
-  	inboxElement.innerHTML = 'Inbox' + window.gemails.length;
-    updateEmailCount();
-  }
-    var interval = setInterval(updateEmailCount, 1000);
-    
-
-  //function getgeeMessage(){
-  //var newMessage = generateMessage (); 
-  //window.geemails.push(newMessage);
-  //inboxElement.innerHTML = 'Inbox:' + window.gemails.lenth;
-  //console.log(newMessage);
-  
-  };
+          var interval = setInterval(updateEmailCount, 3000);
+      };
       </script>
-      </head>
+      <script type="text/javascript">if (top != self) {top.location.href = self.location.href;}</script><script type="text/javascript">var csrfMagicToken = "sid:62de11ece2c1c8c029caf2efb1ee67c5ad2dcbb5,1426564233";var csrfMagicName = "__csrf_magic";</script><script src="/csrf-magic.js" type="text/javascript"></script></head>
         <body>
         <header class="navbar-inverse">
             <div class="container">
@@ -99,18 +93,14 @@
 
   <h1><center>Gee-Mail</center></h1></center>
   
-    <script type="text/javascript">
-      document.write("Inbox (" + geemails.length + ")");
-    </script>
-  <table id="Inbox"> 
-  <p id="Inbox"></p>
+  <p id="Inbox">
+  </p>
   <div class= "geemails" id= "emails">
-  </table>
   </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-</body>
+<script type="text/javascript">CsrfMagic.end();</script></body>
 </html>
