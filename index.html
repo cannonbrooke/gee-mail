@@ -10,8 +10,6 @@
                     <!-- Optional theme -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-                    <!-- JQuery Source -->
-      <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
       <link href="css/style.css" rel="stylesheet" media="screen">
       
       <!-- This is where my code will go -->
@@ -35,6 +33,22 @@
 
            var inboxElement = document.getElementById('Inbox');
            inboxElement.innerHTML =  'Inbox:' + window.geemails.length;
+
+           var msgDiv = document.getElementById('first');
+            firstElement.onclick = function(){
+            var msgDiv = document.getElementById('second');
+            if(msgDiv.className === 'hidden'){
+                setClassName('visible');
+            }else{
+                setClassName('hidden');
+            }
+}
+
+          function setClassName(classValue){
+           var msgDiv = document.getElementById('second');
+           msgDiv.className = classValue;
+}
+
               
           function updateEmailCount() {
             var newMessage = getNewMessage();
@@ -96,6 +110,10 @@
   <p id="Inbox">
   </p>
   <div class= "geemails" id= "emails">
+  <div id="main">
+    <div id="first" class="visible">newMessage.subject</div>
+    <div id="second" class="hidden">message.body</div>
+</div>
   </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
